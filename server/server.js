@@ -12,6 +12,7 @@ const courseRoutes = require('./routes/courseRoutes');
 const forumRoutes = require('./routes/forumRoutes');
 const notificationRoutes = require('./routes/notificationRoutes');
 const uploadRoutes = require('./routes/uploadRoutes');
+const contactRoutes = require('./routes/contactRoutes');
 const adminServices = require('./services/adminServices');
 const webpush = require('web-push');
 const { clg } = require('./routes/basics');
@@ -65,6 +66,7 @@ async function startServer() {
     app.use('/api/forum', forumRoutes);
     app.use('/api/notifications', notificationRoutes);
     app.use('/api/upload', uploadRoutes);
+    app.use('/api/contact', contactRoutes);
     
     // Serve static files in production
     if (process.env.NODE_ENV === 'production') {

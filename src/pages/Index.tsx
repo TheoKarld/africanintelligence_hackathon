@@ -14,6 +14,9 @@ import {
   School, 
   Zap 
 } from "lucide-react";
+import Carousel1 from "@/assets/Carosel_1.jpeg";
+import Carousel2 from "@/assets/Carosel_2.jpeg";
+import Carousel3 from "@/assets/Carosel_3.jpg";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 
@@ -23,17 +26,17 @@ const Index = () => {
 
   const heroSlides = [
     {
-      image: "https://images.pexels.com/photos/3184418/pexels-photo-3184418.jpeg?auto=compress&cs=tinysrgb&w=1280",
+      image: Carousel1,
       title: "African Intelligence Learning Initiative",
       description: "Empowering Africa through advanced education, AI learning, and technological innovation."
     },
     {
-      image: "https://images.pexels.com/photos/5212345/pexels-photo-5212345.jpeg?auto=compress&cs=tinysrgb&w=1280",
+      image: Carousel2,
       title: "AI-Powered Learning Experience",
       description: "Merging cutting-edge technology with African wisdom to create the future leaders of tomorrow."
     },
     {
-      image: "https://images.pexels.com/photos/3861958/pexels-photo-3861958.jpeg?auto=compress&cs=tinysrgb&w=1280",
+      image: Carousel3,
       title: "Education Without Barriers",
       description: "Accessible quality education that transcends geographical limitations across the continent."
     }
@@ -108,7 +111,7 @@ const Index = () => {
                   <Button onClick={() => navigate("/register")} size="lg" className="bg-red-600 hover:bg-red-700 text-white px-8">
                     Get Started
                   </Button>
-                  <Button onClick={() => navigate("/login")} variant="outline" size="lg" className="border-white text-white hover:bg-white/10">
+                  <Button onClick={() => navigate("/login")} variant="outline" size="lg" className="bg-transparent border-white text-white hover:bg-white/10 hover:text-white">
                     Sign In
                   </Button>
                 </div>
@@ -272,7 +275,7 @@ const Index = () => {
               size="lg" 
               variant="outline"
               onClick={() => navigate("/courses")}
-              className="border-white text-white hover:bg-white/10"
+              className="bg-transparent border-white text-white hover:bg-white/10 hover:text-white"
             >
               Browse Courses
             </Button>
@@ -308,7 +311,7 @@ const Index = () => {
                 <li><a href="#" className="text-gray-400 hover:text-white transition-colors">About Us</a></li>
                 <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Careers</a></li>
                 <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Partners</a></li>
-                <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Contact Us</a></li>
+                <li><a href="/contact" className="text-gray-400 hover:text-white transition-colors">Contact Us</a></li>
               </ul>
             </div>
             <div>

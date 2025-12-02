@@ -42,6 +42,7 @@ import EventDetail from "./pages/student/EventDetail";
 import ApiDocumentation from "./pages/admin/ApiDocumentation";
 import ApiDocumentationStudents from "./pages/student/ApiDocumentationStudents";
 import ApiDocumentationFac from "./pages/facilitator/ApiDocumentationFac";
+import Contact from "./pages/Contact";
 
 const App = () => {
   return (
@@ -55,6 +56,7 @@ const App = () => {
               <Route path="/login" element={<Login />} />
               <Route path="/register" element={<Register />} />
               <Route path="/welcome" element={<Welcome />} />
+              <Route path="/contact" element={<Contact />} />
               
               {/* Oracle/Admin Routes */}
               <Route path="/oracle/login" element={<AdminLogin />} />
