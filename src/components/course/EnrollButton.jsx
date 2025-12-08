@@ -25,22 +25,12 @@ const EnrollButton = ({ course, isEnrolled, className }) => {
       // Enroll in the course
       const result = await enrollInCourse(course.key, token);
       
-      // Sync enrollment data to fix inconsistencies
-      // try {
-      //   await syncEnrollmentData(token);
-      //   console.log('Successfully synced enrollment data');
-      // } catch (syncError) {
-      //   console.error('Failed to sync enrollment data:', syncError);
-      //   // Continue with enrollment even if sync fails
-      // }
-      
       // Try to subscribe to push notifications for this course
       try {
         await subscribeToCourseNotifications(course.key, token);
         console.log('Successfully subscribed to course notifications');
       } catch (notificationError) {
         console.error('Failed to subscribe to course notifications:', notificationError);
-        // Continue with enrollment even if notification subscription fails
       }
       
       toast({
@@ -49,29 +39,29 @@ const EnrollButton = ({ course, isEnrolled, className }) => {
         variant: "success",
       });
       
-      // Update the course in CoursesHub to reflect the enrollment
+      // Close the dialog immediately after success (but keep loading true to prevent double clicks)
+      setShowDialog(false);
       
+      // Update the course in CoursesHub to reflect the enrollment immediately
+      if (CoursesHub && CoursesHub.length > 0) {
+        const updatedCourses = CoursesHub.map(c => {
+          if (c._id === course._id) {
+            return {
+              ...c,
+              enrolled: (c.enrolled || 0) + 1,
+              enrolledStudents: [...(c.enrolledStudents || []), user.id],
+              isEnrolled: true
+            };
+          }
+          return c;
+        });
+        setCoursesHub(updatedCourses);
+      }
+      
+      // Reload course data and navigate
       await packLoad(user);
-      // Redirect to course content
-      const to=setTimeout(()=>{
-        if (CoursesHub && CoursesHub.length > 0) {
-          const updatedCourses = CoursesHub.map(c => {
-            if (c._id === course._id) {
-              return {
-                ...c,
-                enrolled: (c.enrolled || 0) + 1,
-                enrolledStudents:[...c.enrolledStudents,user.id],
-                isEnrolled: true
-              };
-            }
-            return c;
-          });
-          setCoursesHub(updatedCourses);
-        }
-
-        navigate(`/student/courses/${course.key}`);
+      navigate(`/student/courses/${course.key}`);
       
-      },3000);
     } catch (error) {
       console.error('Enrollment failed:', error);
       toast({
@@ -81,7 +71,6 @@ const EnrollButton = ({ course, isEnrolled, className }) => {
       });
     } finally {
       setLoading(false);
-      setShowDialog(false);
     }
   };
 

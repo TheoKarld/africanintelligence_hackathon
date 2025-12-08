@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { PlayCircle, FileText, Download, AlertCircle, HelpCircle, CheckCircle, Share2, Mail, MessageCircle, Lock } from 'lucide-react';
+import { PlayCircle, FileText, Download, AlertCircle, HelpCircle, CheckCircle, Share2, Mail, MessageCircle, Lock, ChevronDown, ChevronUp } from 'lucide-react';
 import { useTourLMS } from '@/contexts/TourLMSContext';
 import { useToast } from '@/hooks/use-toast';
 import VideoPlayer from './VideoPlayer';
@@ -20,6 +20,17 @@ const CourseContent = ({ course }) => {
   const [activeContent, setActiveContent] = useState(false);
   const [currentQuizModule, setCurrentQuizModule] = useState(null);
   const [isShareDialogOpen, setIsShareDialogOpen] = useState(false);
+  const [expandedModules, setExpandedModules] = useState({});
+
+  const toggleModule = (index) => {
+    setExpandedModules(prev => {
+      const isCurrentlyExpanded = prev[index] !== false;
+      return {
+        ...prev,
+        [index]: !isCurrentlyExpanded
+      };
+    });
+  };
 
   const shareUrl = window.location.href;
   const shareText = `Check out this course: ${course?.title || 'A great course'} on TourLMS!`;
@@ -297,21 +308,37 @@ const CourseContent = ({ course }) => {
           const isContentCompleted = isModuleContentCompleted(module);
           const isAccessible = isModuleAccessible(index);
 
+          const isExpanded = expandedModules[index] !== false;
+
           return (
             <Card key={index} className={`p-3 sm:p-4 backdrop-blur-lg rounded-2xl shadow-lg border border-white/30 w-full max-w-full ${isAccessible ? 'bg-white/20' : 'bg-gray-200/50 opacity-70'}`}>
               <div className="space-y-3">
-                <div className="flex items-center gap-2 flex-wrap">
-                  <span className="text-sm font-semibold text-amber-500">Module {index + 1}.</span>
-                  <h2 className="text-base font-semibold text-gray-800 break-words">{module.title}</h2>
-                  {!isAccessible && (
-                    <div className="flex items-center gap-1 text-gray-600">
-                      <Lock className="h-4 w-4" />
-                      <span className="text-xs">Complete previous modules to unlock</span>
-                    </div>
-                  )}
+                <div 
+                  className="flex items-center justify-between cursor-pointer"
+                  onClick={() => toggleModule(index)}
+                >
+                  <div className="flex items-center gap-2 flex-wrap flex-1">
+                    <span className="text-sm font-semibold text-amber-500">Module {index + 1}.</span>
+                    <h2 className="text-base font-semibold text-gray-800 break-words">{module.title}</h2>
+                    {!isAccessible && (
+                      <div className="flex items-center gap-1 text-gray-600">
+                        <Lock className="h-4 w-4" />
+                        <span className="text-xs">Complete previous modules to unlock</span>
+                      </div>
+                    )}
+                  </div>
+                  <Button variant="ghost" size="sm" className="p-1">
+                    {isExpanded ? (
+                      <ChevronUp className="h-5 w-5 text-gray-600" />
+                    ) : (
+                      <ChevronDown className="h-5 w-5 text-gray-600" />
+                    )}
+                  </Button>
                 </div>
                 
-                <p className="text-gray-600 text-xs leading-relaxed break-words">{module.description || "No description provided for this module."}</p>
+                {isExpanded && (
+                  <>
+                    <p className="text-gray-600 text-xs leading-relaxed break-words">{module.description || "No description provided for this module."}</p>
 
                 {/* Content Items */}
                 {module.content && module.content.length > 0 ? (
@@ -471,6 +498,8 @@ const CourseContent = ({ course }) => {
                       </Button>
                     </div>
                   )
+                )}
+                  </>
                 )}
               </div>
             </Card>

@@ -1,13 +1,12 @@
 
-import React, { useState } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { PlusCircle } from 'lucide-react';
+import { PlusCircle, Loader2 } from 'lucide-react';
 import CourseCard from './CourseCard';
 import { useTourLMS } from '../../contexts/TourLMSContext';
 
 const CourseGrid = ({ 
-   
   title = "Available Courses", 
   showCreateButton = false, 
   createButtonLink = "/facilitator/create-course",
@@ -15,13 +14,9 @@ const CourseGrid = ({
   path = "courses" // Path prefix for course links
 }) => {
   
-  const {CoursesHub} = useTourLMS();
-  const [courses,setCourses]=useState([]);
-
-  useEffect(()=>{
-if(!ocn(CoursesHub))return;
-setCourses([...CoursesHub])
-  },[CoursesHub])
+  const { CoursesHub, coursesLoaded } = useTourLMS();
+  const courses = CoursesHub || [];
+  const isLoading = !coursesLoaded;
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -73,7 +68,11 @@ setCourses([...CoursesHub])
         )}
       </div>
       
-      {courses && courses.length > 0 ? (
+      {isLoading ? (
+        <div className="flex justify-center items-center py-20">
+          <Loader2 className="h-8 w-8 animate-spin text-red-600" />
+        </div>
+      ) : courses.length > 0 ? (
         <motion.div 
           className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6"
           variants={containerVariants}
