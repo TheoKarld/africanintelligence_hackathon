@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import { useTourLMS } from '@/contexts/TourLMSContext';
 import { checkEnrollmentStatus } from '@/api/courseService';
 import { useToast } from '@/hooks/use-toast';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
-import { BookOpen, FileText, MessageSquare } from 'lucide-react';
+import { BookOpen, FileText, MessageSquare, ArrowLeft } from 'lucide-react';
 import { Skeleton } from '@/components/ui/skeleton';
+import { Button } from '@/components/ui/button';
 import CourseOverview from '@/components/course/CourseOverview';
 import CourseContent from '@/components/course/CourseContent';
 import CourseForum from '@/components/course/CourseForum';
@@ -14,6 +15,7 @@ import { image_01, image_02 } from '../../js/Data';
 
 const CourseDetail = () => {
   const { id } = useParams();
+  const navigate = useNavigate();
   const { user, token, CoursesHub,enrolledCourses } = useTourLMS();
   const { toast } = useToast();
   const [course, setCourse] = useState(null);
@@ -113,6 +115,14 @@ const CourseDetail = () => {
   // For enrolled students, show full course tabs
   return (
     <div className="container mx-auto p-6 mt-16">
+      <Button 
+        variant="ghost" 
+        onClick={() => navigate(-1)} 
+        className="mb-4 flex items-center gap-2 text-slate-600 hover:text-slate-900"
+      >
+        <ArrowLeft className="h-4 w-4" />
+        Back
+      </Button>
       <div className="mb-8">
         <h1 className="text-3xl font-bold text-slate-900 dark:text-white mb-2">{course.title}</h1>
         <p className="text-slate-600 dark:text-slate-300">{course.description}</p>

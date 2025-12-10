@@ -334,11 +334,11 @@ export const TourLMSProvider = ({ children }) => {
       });
       console.log('All courses:', allCoursesResponse.data);
       setCoursesHub(allCoursesResponse.data);
-      
-      // For students, also get enrolled courses
+      setCoursesLoaded(true);
       
     } catch (error) {
       console.error('Error loading data:', error);
+      setCoursesLoaded(true); // Mark as loaded even on error to stop loading state
     }
   }
   

@@ -88,14 +88,7 @@ const StudentCourses = () => {
         </TabsList>
 
         <TabsContent value="explore" className="space-y-4">
-          {CoursesHub && CoursesHub.length > 0 ? (
-            <CourseGrid />
-          ) : (
-            <div className="text-center py-12">
-              <h3 className="text-lg font-medium">No courses available at the moment</h3>
-              <p className="text-gray-600 mt-1">Please check back later for new course offerings</p>
-            </div>
-          )}
+          <CourseGrid />
         </TabsContent>
 
         <TabsContent value="learning" className="space-y-4">

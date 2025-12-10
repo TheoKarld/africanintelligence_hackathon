@@ -1,16 +1,18 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { Users, Clock, Star, User, Share2, Mail, MessageCircle } from 'lucide-react'; // Added Mail and MessageCircle
+import { Users, Clock, Star, User, Share2, Mail, MessageCircle, ArrowLeft } from 'lucide-react';
 import EnrollButton from './EnrollButton';
 import CourseRating from './CourseRating';
 import { image_01, image_02 } from '../../js/Data';
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription, DialogFooter } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
-import { useToast } from "@/hooks/use-toast"; // Added useToast for notifications
+import { useToast } from "@/hooks/use-toast";
 
 const CourseOverview = ({ course, isEnrolled }) => {
+  const navigate = useNavigate();
   const [isShareDialogOpen, setIsShareDialogOpen] = useState(false);
   const { toast } = useToast();
   const shareUrl = window.location.href;
@@ -73,6 +75,14 @@ const CourseOverview = ({ course, isEnrolled }) => {
 
   return (
     <div className="space-y-6 mt-16">
+      <Button 
+        variant="ghost" 
+        onClick={() => navigate(-1)} 
+        className="mb-4 flex items-center gap-2 text-slate-600 hover:text-slate-900"
+      >
+        <ArrowLeft className="h-4 w-4" />
+        Back
+      </Button>
       <Card className="p-6">
         <div className="grid md:grid-cols-3 gap-6">
           <div className="md:col-span-2">
