@@ -1,18 +1,23 @@
-
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { 
-  Cpu, 
-  BookOpen, 
-  Users, 
-  Award, 
-  Play, 
-  Globe, 
-  Shield, 
-  Heart, 
-  Sprout, 
-  School, 
-  Zap 
+import {
+  Cpu,
+  BookOpen,
+  Users,
+  Award,
+  Play,
+  Globe,
+  Shield,
+  Heart,
+  Sprout,
+  School,
+  Zap,
+  Facebook,
+  Twitter,
+  Instagram,
+  Linkedin,
+  MessageCircle,
+  Youtube,
 } from "lucide-react";
 import Carousel1 from "@/assets/Carosel_1.jpeg";
 import Carousel2 from "@/assets/Carosel_2.jpeg";
@@ -28,18 +33,21 @@ const Index = () => {
     {
       image: Carousel1,
       title: "African Intelligence Learning Initiative",
-      description: "Empowering Africa through advanced education, AI learning, and technological innovation."
+      description:
+        "Empowering Africa through advanced education, AI learning, and technological innovation.",
     },
     {
       image: Carousel2,
       title: "AI-Powered Learning Experience",
-      description: "Merging cutting-edge technology with African wisdom to create the future leaders of tomorrow."
+      description:
+        "Merging cutting-edge technology with African wisdom to create the future leaders of tomorrow.",
     },
     {
       image: Carousel3,
       title: "Education Without Barriers",
-      description: "Accessible quality education that transcends geographical limitations across the continent."
-    }
+      description:
+        "Accessible quality education that transcends geographical limitations across the continent.",
+    },
   ];
 
   useEffect(() => {
@@ -47,15 +55,35 @@ const Index = () => {
     const interval = setInterval(() => {
       setCurrentSlide((prev) => (prev + 1) % heroSlides.length);
     }, 6000);
-    
+
     return () => clearInterval(interval);
   }, [heroSlides.length]);
 
   const features = [
-    { icon: <BookOpen className="h-10 w-10 text-red-600" />, title: "Expert-Led Learning", description: "Courses created and taught by industry experts and academic professionals in AI and technology." },
-    { icon: <Award className="h-10 w-10 text-red-600" />, title: "Recognized Certifications", description: "Earn industry-recognized certificates to boost your career prospects and opportunities." },
-    { icon: <Users className="h-10 w-10 text-red-600" />, title: "Collaborative Community", description: "Join a vibrant network of learners and facilitators pushing the boundaries of innovation." },
-    { icon: <Play className="h-10 w-10 text-red-600" />, title: "Interactive Content", description: "Engage with dynamic learning materials, including video lectures, interactive assignments, and hands-on projects." },
+    {
+      icon: <BookOpen className="h-10 w-10 text-red-600" />,
+      title: "Expert-Led Learning",
+      description:
+        "Courses created and taught by industry experts and academic professionals in AI and technology.",
+    },
+    {
+      icon: <Award className="h-10 w-10 text-red-600" />,
+      title: "Recognized Certifications",
+      description:
+        "Earn industry-recognized certificates to boost your career prospects and opportunities.",
+    },
+    {
+      icon: <Users className="h-10 w-10 text-red-600" />,
+      title: "Collaborative Community",
+      description:
+        "Join a vibrant network of learners and facilitators pushing the boundaries of innovation.",
+    },
+    {
+      icon: <Play className="h-10 w-10 text-red-600" />,
+      title: "Interactive Content",
+      description:
+        "Engage with dynamic learning materials, including video lectures, interactive assignments, and hands-on projects.",
+    },
   ];
 
   const stats = [
@@ -66,15 +94,57 @@ const Index = () => {
   ];
 
   const topCourses = [
-    { id: 1, title: "African AI: Foundations and Applications", instructor: "Dr. Nnamdi Azikiwe", image: "https://images.pexels.com/photos/3861972/pexels-photo-3861972.jpeg?auto=compress&cs=tinysrgb&w=800", rating: 4.9, students: 600 },
-    { id: 2, title: "Machine Learning for African Development", instructor: "Prof. Amina Mohammed", image: "https://images.pexels.com/photos/3862132/pexels-photo-3862132.jpeg?auto=compress&cs=tinysrgb&w=800", rating: 4.8, students: 750 },
-    { id: 3, title: "Data Science: African Case Studies", instructor: "Dr. Kofi Annan", image: "https://images.pexels.com/photos/3184338/pexels-photo-3184338.jpeg?auto=compress&cs=tinysrgb&w=800", rating: 4.7, students: 520 },
+    {
+      id: 1,
+      title: "African AI: Foundations and Applications",
+      instructor: "Dr. Nnamdi Azikiwe",
+      image:
+        "https://images.pexels.com/photos/3861972/pexels-photo-3861972.jpeg?auto=compress&cs=tinysrgb&w=800",
+      rating: 4.9,
+      students: 600,
+    },
+    {
+      id: 2,
+      title: "Machine Learning for African Development",
+      instructor: "Prof. Amina Mohammed",
+      image:
+        "https://images.pexels.com/photos/3862132/pexels-photo-3862132.jpeg?auto=compress&cs=tinysrgb&w=800",
+      rating: 4.8,
+      students: 750,
+    },
+    {
+      id: 3,
+      title: "Data Science: African Case Studies",
+      instructor: "Dr. Kofi Annan",
+      image:
+        "https://images.pexels.com/photos/3184338/pexels-photo-3184338.jpeg?auto=compress&cs=tinysrgb&w=800",
+      rating: 4.7,
+      students: 520,
+    },
   ];
 
   const testimonials = [
-    { text: "The AI course transformed my career! I now lead a tech team developing solutions for agricultural challenges in East Africa.", name: "Makena Ochieng", role: "Data Scientist, Kenya", image: "https://images.pexels.com/photos/2379005/pexels-photo-2379005.jpeg?auto=compress&cs=tinysrgb&w=100" },
-    { text: "The personalized learning approach and community support made complex AI concepts accessible and applicable to our local challenges.", name: "Fatima Diallo", role: "AI Developer, Senegal", image: "https://images.pexels.com/photos/1239291/pexels-photo-1239291.jpeg?auto=compress&cs=tinysrgb&w=100" },
-    { text: "This platform bridges theory with practical application. I've implemented what I learned to improve healthcare delivery in my community.", name: "Emmanuel Nkosi", role: "Health Tech Innovator, South Africa", image: "https://images.pexels.com/photos/3748221/pexels-photo-3748221.jpeg?auto=compress&cs=tinysrgb&w=100" },
+    {
+      text: "The AI course transformed my career! I now lead a tech team developing solutions for agricultural challenges in East Africa.",
+      name: "Makena Ochieng",
+      role: "Data Scientist, Kenya",
+      image:
+        "https://images.pexels.com/photos/2379005/pexels-photo-2379005.jpeg?auto=compress&cs=tinysrgb&w=100",
+    },
+    {
+      text: "The personalized learning approach and community support made complex AI concepts accessible and applicable to our local challenges.",
+      name: "Fatima Diallo",
+      role: "AI Developer, Senegal",
+      image:
+        "https://images.pexels.com/photos/1239291/pexels-photo-1239291.jpeg?auto=compress&cs=tinysrgb&w=100",
+    },
+    {
+      text: "This platform bridges theory with practical application. I've implemented what I learned to improve healthcare delivery in my community.",
+      name: "Emmanuel Nkosi",
+      role: "Health Tech Innovator, South Africa",
+      image:
+        "https://images.pexels.com/photos/3748221/pexels-photo-3748221.jpeg?auto=compress&cs=tinysrgb&w=100",
+    },
   ];
 
   return (
@@ -95,7 +165,7 @@ const Index = () => {
               className="object-cover w-full h-full"
             />
             <div className="absolute inset-0 flex items-center z-20 px-6 md:px-20 max-w-7xl mx-auto">
-              <motion.div 
+              <motion.div
                 className="text-white max-w-2xl"
                 initial={{ y: 30, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
@@ -104,14 +174,21 @@ const Index = () => {
                 <h1 className="text-4xl md:text-6xl font-bold mb-4">
                   {slide.title}
                 </h1>
-                <p className="text-xl md:text-2xl mb-8">
-                  {slide.description}
-                </p>
+                <p className="text-xl md:text-2xl mb-8">{slide.description}</p>
                 <div className="flex flex-wrap gap-4">
-                  <Button onClick={() => navigate("/register")} size="lg" className="bg-red-600 hover:bg-red-700 text-white px-8">
+                  <Button
+                    onClick={() => navigate("/register")}
+                    size="lg"
+                    className="bg-red-600 hover:bg-red-700 text-white px-8"
+                  >
                     Get Started
                   </Button>
-                  <Button onClick={() => navigate("/login")} variant="outline" size="lg" className="bg-transparent border-white text-white hover:bg-white/10 hover:text-white">
+                  <Button
+                    onClick={() => navigate("/login")}
+                    variant="outline"
+                    size="lg"
+                    className="bg-transparent border-white text-white hover:bg-white/10 hover:text-white"
+                  >
                     Sign In
                   </Button>
                 </div>
@@ -139,9 +216,11 @@ const Index = () => {
         <div className="container mx-auto px-6 text-center">
           <h2 className="text-4xl font-bold text-gray-900 mb-6">Our Mission</h2>
           <p className="text-xl text-gray-700 max-w-3xl mx-auto leading-relaxed">
-            African Intelligence aims to transform education across Africa from 0 to 100, 
-            leveraging AI learning and cutting-edge technologies. We provide carefully structured courses 
-            with highly skilled facilitators, making it easier for learners to master complex subjects and skills.
+            African Intelligence aims to transform education across Africa from
+            0 to 100, leveraging AI learning and cutting-edge technologies. We
+            provide carefully structured courses with highly skilled
+            facilitators, making it easier for learners to master complex
+            subjects and skills.
           </p>
           <div className="mt-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {features.map((feature, index) => (
@@ -165,7 +244,7 @@ const Index = () => {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
             {stats.map((stat, index) => (
               <div key={index} className="py-6">
-                <motion.p 
+                <motion.p
                   className="text-4xl font-bold mb-2"
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
@@ -184,9 +263,12 @@ const Index = () => {
       {/* Featured Courses */}
       <section className="py-20 bg-gray-50">
         <div className="container mx-auto px-6">
-          <h2 className="text-4xl font-bold text-gray-900 mb-4 text-center">Featured Courses</h2>
+          <h2 className="text-4xl font-bold text-gray-900 mb-4 text-center">
+            Featured Courses
+          </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto text-center mb-12">
-            Discover our most popular courses designed to equip you with the skills needed for the future.
+            Discover our most popular courses designed to equip you with the
+            skills needed for the future.
           </p>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {topCourses.map((course) => (
@@ -195,22 +277,26 @@ const Index = () => {
                 whileHover={{ scale: 1.03 }}
                 className="bg-white rounded-xl overflow-hidden shadow-lg"
               >
-                <img 
-                  src={course.image} 
-                  alt={course.title} 
+                <img
+                  src={course.image}
+                  alt={course.title}
                   className="w-full h-48 object-cover"
                 />
                 <div className="p-6">
                   <h3 className="text-xl font-semibold mb-2">{course.title}</h3>
-                  <p className="text-gray-600 mb-4">Instructor: {course.instructor}</p>
+                  <p className="text-gray-600 mb-4">
+                    Instructor: {course.instructor}
+                  </p>
                   <div className="flex justify-between items-center">
                     <div className="flex items-center space-x-1">
                       <span className="text-yellow-500">★</span>
                       <span>{course.rating}</span>
-                      <span className="text-gray-500">({course.students} students)</span>
+                      <span className="text-gray-500">
+                        ({course.students} students)
+                      </span>
                     </div>
-                    <Button 
-                      size="sm" 
+                    <Button
+                      size="sm"
                       className="bg-red-600 hover:bg-red-700 text-white"
                       onClick={() => navigate("/login")}
                     >
@@ -227,9 +313,12 @@ const Index = () => {
       {/* Testimonials */}
       <section className="py-20 bg-white">
         <div className="container mx-auto px-6">
-          <h2 className="text-4xl font-bold text-gray-900 mb-4 text-center">Success Stories</h2>
+          <h2 className="text-4xl font-bold text-gray-900 mb-4 text-center">
+            Success Stories
+          </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto text-center mb-12">
-            Hear from our learners who have transformed their careers and made an impact across Africa.
+            Hear from our learners who have transformed their careers and made
+            an impact across Africa.
           </p>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {testimonials.map((testimonial, index) => (
@@ -238,11 +327,13 @@ const Index = () => {
                 whileHover={{ y: -10 }}
                 className="bg-gray-50 p-6 rounded-xl shadow-lg border border-gray-100"
               >
-                <p className="text-gray-700 italic mb-6">"{testimonial.text}"</p>
+                <p className="text-gray-700 italic mb-6">
+                  "{testimonial.text}"
+                </p>
                 <div className="flex items-center">
-                  <img 
-                    src={testimonial.image} 
-                    alt={testimonial.name} 
+                  <img
+                    src={testimonial.image}
+                    alt={testimonial.name}
                     className="w-12 h-12 rounded-full mr-4 object-cover"
                   />
                   <div>
@@ -259,20 +350,24 @@ const Index = () => {
       {/* CTA */}
       <section className="py-20 bg-gradient-to-r from-red-600 to-red-700 text-white">
         <div className="container mx-auto px-6 text-center">
-          <h2 className="text-4xl font-bold mb-6">Start Your Learning Journey Today</h2>
+          <h2 className="text-4xl font-bold mb-6">
+            Start Your Learning Journey Today
+          </h2>
           <p className="text-xl max-w-2xl mx-auto mb-10">
-            Join thousands of learners across Africa who are mastering AI, technology, and innovation to solve local challenges and build a better future.
+            Join thousands of learners across Africa who are mastering AI,
+            technology, and innovation to solve local challenges and build a
+            better future.
           </p>
           <div className="flex flex-wrap justify-center gap-4">
-            <Button 
-              size="lg" 
+            <Button
+              size="lg"
               onClick={() => navigate("/register")}
               className="bg-white text-red-600 hover:bg-gray-100 px-8"
             >
               Get Started
             </Button>
-            <Button 
-              size="lg" 
+            <Button
+              size="lg"
               variant="outline"
               onClick={() => navigate("/courses")}
               className="bg-transparent border-white text-white hover:bg-white/10 hover:text-white"
@@ -286,7 +381,7 @@ const Index = () => {
       {/* Footer */}
       <footer className="py-12 bg-gray-900 text-white">
         <div className="container mx-auto px-6">
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
+          <div className="grid grid-cols-1 md:grid-cols-5 gap-8 mb-12">
             <div>
               <div className="flex items-center mb-4">
                 <Cpu className="h-6 w-6 text-red-500 mr-2" />
@@ -299,32 +394,177 @@ const Index = () => {
             <div>
               <h3 className="font-semibold text-lg mb-4">Courses</h3>
               <ul className="space-y-2">
-                <li><a href="#" className="text-gray-400 hover:text-white transition-colors">AI & Machine Learning</a></li>
-                <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Data Science</a></li>
-                <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Web Development</a></li>
-                <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Mobile Development</a></li>
+                <li>
+                  <a
+                    href="#"
+                    className="text-gray-400 hover:text-white transition-colors"
+                  >
+                    AI & Machine Learning
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#"
+                    className="text-gray-400 hover:text-white transition-colors"
+                  >
+                    Data Science
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#"
+                    className="text-gray-400 hover:text-white transition-colors"
+                  >
+                    Web Development
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#"
+                    className="text-gray-400 hover:text-white transition-colors"
+                  >
+                    Mobile Development
+                  </a>
+                </li>
               </ul>
             </div>
             <div>
               <h3 className="font-semibold text-lg mb-4">Company</h3>
               <ul className="space-y-2">
-                <li><a href="#" className="text-gray-400 hover:text-white transition-colors">About Us</a></li>
-                <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Careers</a></li>
-                <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Partners</a></li>
-                <li><a href="/contact" className="text-gray-400 hover:text-white transition-colors">Contact Us</a></li>
+                <li>
+                  <a
+                    href="#"
+                    className="text-gray-400 hover:text-white transition-colors"
+                  >
+                    About Us
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#"
+                    className="text-gray-400 hover:text-white transition-colors"
+                  >
+                    Careers
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#"
+                    className="text-gray-400 hover:text-white transition-colors"
+                  >
+                    FAQ
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="/contact"
+                    className="text-gray-400 hover:text-white transition-colors"
+                  >
+                    Contact Us
+                  </a>
+                </li>
               </ul>
             </div>
             <div>
               <h3 className="font-semibold text-lg mb-4">Legal</h3>
               <ul className="space-y-2">
-                <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Terms of Service</a></li>
-                <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Privacy Policy</a></li>
-                <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Cookie Policy</a></li>
+                <li>
+                  <a
+                    href="#"
+                    className="text-gray-400 hover:text-white transition-colors"
+                  >
+                    Terms of Service
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#"
+                    className="text-gray-400 hover:text-white transition-colors"
+                  >
+                    Privacy Policy
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#"
+                    className="text-gray-400 hover:text-white transition-colors"
+                  >
+                    Cookie Policy
+                  </a>
+                </li>
+              </ul>
+            </div>
+            <div>
+              <h3 className="font-semibold text-lg mb-4">Follow Us</h3>
+              <ul className="space-y-3">
+                <li>
+                  <a
+                    href="https://www.facebook.com/people/Bold-N-B-Creators/100093620440645/?mibextid=ZbWKwL"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-2 text-gray-400 hover:text-white transition-colors"
+                  >
+                    <Facebook className="h-5 w-5" /> Facebook
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="https://www.youtube.com/results?search_query=B%26B+CREATORS"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-2 text-gray-400 hover:text-white transition-colors"
+                  >
+                    <Youtube className="h-5 w-5" /> YouTube
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="https://x.com/B_BCreators"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-2 text-gray-400 hover:text-white transition-colors"
+                  >
+                    <Twitter className="h-5 w-5" /> X
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="https://www.linkedin.com/authwall?trk=bf&trkInfo=bf&original_referer=&sessionRedirect=https%3A%2F%2Fwww.linkedin.com%2Fcompany%2Fbold-beautiful-creators%2F"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-2 text-gray-400 hover:text-white transition-colors"
+                  >
+                    <Linkedin className="h-5 w-5" /> LinkedIn
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="https://www.instagram.com/b_bcreators/?igsh=ZDJsbGk3dGp6eDQ1#"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-2 text-gray-400 hover:text-white transition-colors"
+                  >
+                    <Instagram className="h-5 w-5" /> Instagram
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="https://creativetechafrica.blog/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-2 text-gray-400 hover:text-white transition-colors"
+                  >
+                    <BookOpen className="h-5 w-5" /> Blog
+                  </a>
+                </li>
               </ul>
             </div>
           </div>
           <div className="border-t border-gray-800 pt-8 text-center">
-            <p className="text-gray-500">© {new Date().getFullYear()} African Intelligence LMS. All rights reserved.</p>
+            <p className="text-gray-500">
+              © {new Date().getFullYear()} African Intelligence LMS. All rights
+              reserved.
+            </p>
           </div>
         </div>
       </footer>

@@ -1,12 +1,12 @@
 
 import React from 'react';
-import { Hotel, Mail, Phone, MapPin, Facebook, Twitter, Instagram, Linkedin } from 'lucide-react';
+import { Hotel, Mail, Phone, MapPin, Facebook, Twitter, Instagram, Linkedin, MessageCircle, BookOpen } from 'lucide-react';
 
 const FooterSection: React.FC = () => {
   return (
     <footer className="bg-gray-900 text-white py-16 px-6">
       <div className="max-w-7xl mx-auto">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10">
           <div>
             <div className="flex items-center gap-2 mb-6">
               <Hotel className="h-8 w-8 text-red-500" />
@@ -15,20 +15,6 @@ const FooterSection: React.FC = () => {
             <p className="text-gray-400 mb-6">
               Transforming the tourism landscape of Plateau State through innovative digital learning.
             </p>
-            <div className="flex gap-4">
-              <a href="#" className="text-gray-400 hover:text-white transition-colors" aria-label="Facebook">
-                <Facebook className="h-6 w-6" />
-              </a>
-              <a href="#" className="text-gray-400 hover:text-white transition-colors" aria-label="Twitter">
-                <Twitter className="h-6 w-6" />
-              </a>
-              <a href="#" className="text-gray-400 hover:text-white transition-colors" aria-label="Instagram">
-                <Instagram className="h-6 w-6" />
-              </a>
-              <a href="#" className="text-gray-400 hover:text-white transition-colors" aria-label="LinkedIn">
-                <Linkedin className="h-6 w-6" />
-              </a>
-            </div>
           </div>
           
           <div>
@@ -68,6 +54,18 @@ const FooterSection: React.FC = () => {
                 <Mail className="h-5 w-5 text-red-500 mr-3 flex-shrink-0" />
                 <span className="text-gray-400">info@smarttourism.edu.ng</span>
               </li>
+            </ul>
+          </div>
+
+          <div>
+            <h3 className="text-lg font-semibold mb-6">Follow Us</h3>
+            <ul className="space-y-3">
+              <li><a href="#" className="flex items-center gap-2 text-gray-400 hover:text-white transition-colors"><Facebook className="h-5 w-5" /> Facebook</a></li>
+              <li><a href="#" className="flex items-center gap-2 text-gray-400 hover:text-white transition-colors"><MessageCircle className="h-5 w-5" /> WhatsApp</a></li>
+              <li><a href="#" className="flex items-center gap-2 text-gray-400 hover:text-white transition-colors"><Twitter className="h-5 w-5" /> X</a></li>
+              <li><a href="#" className="flex items-center gap-2 text-gray-400 hover:text-white transition-colors"><Linkedin className="h-5 w-5" /> LinkedIn</a></li>
+              <li><a href="#" className="flex items-center gap-2 text-gray-400 hover:text-white transition-colors"><Instagram className="h-5 w-5" /> Instagram</a></li>
+              <li><a href="#" className="flex items-center gap-2 text-gray-400 hover:text-white transition-colors"><BookOpen className="h-5 w-5" /> Blog</a></li>
             </ul>
           </div>
         </div>

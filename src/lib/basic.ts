@@ -1,26 +1,29 @@
+// @ts-nocheck
+/* eslint-disable */
 /**
  * Google OAuth client ID for authentication
  */
-export const clientID = "362317276442-mgtl88gvv32u5cfgu8qk6s088eid0gkq.apps.googleusercontent.com";
+export const clientID =
+  "362317276442-mgtl88gvv32u5cfgu8qk6s088eid0gkq.apps.googleusercontent.com";
 
-var INC = {},
+let INC = {},
   UB;
 
 function cta(o) {
-  var a = [];
-  for (var i in o) a.push(i);
+  const a = [];
+  for (const i in o) a.push(i);
   return a;
 }
 
 function cto(a, v) {
-  var o = {};
-  for (var i = 0; i < ocn(a); i++) {
+  const o = {};
+  for (let i = 0; i < ocn(a); i++) {
     o[a[i]] = v ? v : "";
   }
   return o;
 }
 function datemap(dm = "") {
-  var y = date("y", dm),
+  const y = date("y", dm),
     m = date("m", dm),
     d = date("dt", dm),
     o = {
@@ -54,7 +57,7 @@ function datemap(dm = "") {
   return o;
 }
 function date(r, dm) {
-  var o = dm ? dm : new Date(),
+  let o = dm ? dm : new Date(),
     v;
   if (r === "f") v = o.toString().split("+")[0];
   if (r === "m") v = o.getMonth();
@@ -69,7 +72,7 @@ function date(r, dm) {
   return v;
 }
 function $$$(e, i, c, at, y) {
-  var d = document.createElement(e);
+  const d = document.createElement(e);
   if (i) d.id = i;
   if (c) d.className = c;
   attme(d, at);
@@ -78,14 +81,14 @@ function $$$(e, i, c, at, y) {
 }
 function attme(c, o) {
   if (!o) return;
-  for (var i in o) c.setAttribute(i, o[i]);
+  for (const i in o) c.setAttribute(i, o[i]);
 }
 function feedme(p, c) {
   if (!p || !c) return;
   if (typeof c === "string" || typeof c === "number") {
     p.innerHTML += c;
   } else {
-    for (var i in c) if (c[i]) APP(p, c[i]);
+    for (const i in c) if (c[i]) APP(p, c[i]);
   }
 }
 function APP(p, c) {
@@ -93,7 +96,7 @@ function APP(p, c) {
   try {
     p.appendChild(c);
   } catch (err) {
-    var pi = iso(p) && p.id ? p.id : "",
+    const pi = iso(p) && p.id ? p.id : "",
       ci = iso(c) && c.id ? p.id : "";
     console.log(pi + "-----" + ci);
   }
@@ -101,24 +104,24 @@ function APP(p, c) {
 var iso = (el) => {
   return typeof el === "object";
 };
-function clg(t,ex) {
-  console.log(t,ex);
+function clg(t, ex) {
+  console.log(t, ex);
 }
 function ocn(o) {
-  var c = 0;
-  for (var i in o) {
+  let c = 0;
+  for (const i in o) {
     c += 1;
   }
   return c;
 }
 function revarray(v) {
-  var c = [],
+  const c = [],
     r = "";
-  for (var i = ocn(v) - 1; i > -1; i--) c.push(v[i]);
+  for (let i = ocn(v) - 1; i > -1; i--) c.push(v[i]);
   return c;
 }
-var flashbox = (v, ia, r) => {
-  var h = small("Notice", "blue").e,
+const flashbox = (v, ia, r) => {
+  let h = small("Notice", "blue").e,
     rd = colbox("nopad", 3, 2, 4, 11),
     eo = { e: rd, f1: myf1 },
     ks,
@@ -133,7 +136,7 @@ var flashbox = (v, ia, r) => {
   );
   function myf1(v, ia, r) {
     y = 0.5;
-    var k = "flash-" + datemap().key + (ocn(zz) + 1),
+    let k = "flash-" + datemap().key + (ocn(zz) + 1),
       x1 = sect(
         "",
         (r ? "bred" : "bgreen") +
@@ -182,7 +185,7 @@ var flashbox = (v, ia, r) => {
   return eo;
 };
 var strong = (tx, id, c, at) => {
-  var rd = $$$("strong", id, c, at),
+  const rd = $$$("strong", id, c, at),
     eo = {};
   eo.e = rd;
   typeof tx === "string" || typeof tx === "number"
@@ -191,7 +194,7 @@ var strong = (tx, id, c, at) => {
   return eo;
 };
 var small = (tx, id, c, at) => {
-  var rd = $$$("small", id, c, at),
+  const rd = $$$("small", id, c, at),
     eo = {};
   eo.e = rd;
   typeof tx === "string" || typeof tx === "number"
@@ -199,55 +202,55 @@ var small = (tx, id, c, at) => {
     : feedme(rd, tx);
   return eo;
 };
-var sup = (tx, id, c, at) => {
-  var rd = $$$("sup", id, c, at),
+const sup = (tx, id, c, at) => {
+  const rd = $$$("sup", id, c, at),
     eo = { e: rd };
   typeof tx === "string" || typeof tx === "number"
     ? (rd.innerHTML = tx)
     : feedme(rd, tx);
   return eo;
 };
-var sub = (tx, id, c, at) => {
-  var rd = $$$("sub", id, c, at),
+const sub = (tx, id, c, at) => {
+  const rd = $$$("sub", id, c, at),
     eo = { e: rd };
   typeof tx === "string" || typeof tx === "number"
     ? (rd.innerHTML = tx)
     : feedme(rd, tx);
   return eo;
 };
-var center = (tx, id, c, at) => {
-  var rd = $$$("center", id, c, at),
+const center = (tx, id, c, at) => {
+  const rd = $$$("center", id, c, at),
     eo = {};
   eo.e = rd;
   typeof tx === "string" ? (rd.innerHTML = tx) : feedme(rd, tx);
   return eo;
 };
 var colbox = function (id, l, m, s, x, cl, c, at) {
-  var rd = DIV(
+  const rd = DIV(
     id,
     "col-lg-" + l + " col-md-" + m + " col-sm-" + s + " col-xs-" + x + " colbox"
   );
-  if (cl) for (var i in cl) APP(rd, cl[i]);
+  if (cl) for (const i in cl) APP(rd, cl[i]);
   if (c) addclass(rd, c);
   if (at) attme(rd, at);
   return rd;
 };
 var DIV = (id, c, at, cl) => {
-  var rd = $$$("div", id, c);
+  const rd = $$$("div", id, c);
   attme(rd, at);
 
   if (cl) feedme(rd, cl);
   return rd;
 };
 var sect = (id, c, at, cl) => {
-  var rd = $$$("section", id, c);
+  const rd = $$$("section", id, c);
   attme(rd, at);
 
   if (cl) feedme(rd, cl);
   return rd;
 };
 var par = function (tx, id, c, at) {
-  var p = $$$("p", id, c);
+  const p = $$$("p", id, c);
   attme(p, at);
   if (typeof tx != "object") {
     p.innerHTML = tx ? tx : "";
@@ -256,8 +259,8 @@ var par = function (tx, id, c, at) {
   }
   return p;
 };
-var anc = function (rf, cn, cl, id, ro) {
-  var a = $$$("a", id, cl);
+const anc = function (rf, cn, cl, id, ro) {
+  const a = $$$("a", id, cl);
   if (rf) a.href = rf;
   if (cn) {
     if (typeof cn != "object") {
@@ -269,8 +272,8 @@ var anc = function (rf, cn, cl, id, ro) {
   attme(a, ro);
   return a;
 };
-var hea = function (c, tx, id, cl, at) {
-  var t = "h" + c,
+const hea = function (c, tx, id, cl, at) {
+  const t = "h" + c,
     a = $$$(t, id, cl);
   if (at) attme(a, at);
   if (typeof tx == "string") {
@@ -281,13 +284,13 @@ var hea = function (c, tx, id, cl, at) {
   return a;
 };
 var icon2 = (v, i, c, at) => {
-  var a = $$$("i", i, INC[v]);
+  const a = $$$("i", i, INC[v]);
   if (c) addclass(a, c);
   if (at) attme(a, at);
   return a;
 };
-var modal = (o, xm) => {
-  var hd = $$$("header", "", "flex justify-between", "", [
+const modal = (o, xm) => {
+  const hd = $$$("header", "", "flex justify-between", "", [
       DIV("", "", "", o.hd),
       but(
         [$$$("i", "xmod", "bi bi-x font25")],
@@ -367,7 +370,7 @@ var modal = (o, xm) => {
   }
   function myf2() {}
   addEvent(rd, "keydown", (v) => {
-    var e = v.code,
+    const e = v.code,
       ev = v.key;
     if (e == "Enter" || ev == "Enter") myf1();
     if (ev == "Escape" || e == "Escape") myfx();
@@ -382,7 +385,7 @@ var modal = (o, xm) => {
 };
 function parse(s) {
   if (!s) return 0;
-  var t = s.toString();
+  const t = s.toString();
   if (isfra(t)) {
     return parseFloat(s);
   } else {
@@ -391,9 +394,9 @@ function parse(s) {
 }
 function parseup(s) {
   if (!s) return 0;
-  var t = s;
+  let t = s;
   if (isfra(t)) {
-    var a = rnd(t, 1);
+    let a = rnd(t, 1);
     a = a.toString().split(".");
     a = parse(a[1]) > 4 ? parse(a[0]) + 1 : a[0];
     parse(a);
@@ -402,7 +405,7 @@ function parseup(s) {
   return parseInt(t);
 }
 function isfra(n) {
-  var r = false;
+  let r = false;
   n = n.toString();
   if (n.indexOf(".") > 0) {
     r = true;
@@ -410,11 +413,11 @@ function isfra(n) {
   return r;
 }
 function spaceword(t) {
-  var v = "",
+  let v = "",
     a = t.split(" ");
   if (ocn(a) == 1 || ocn(a[0]) > 1) return false;
   v = a[0] ? a[0] : "";
-  for (var i = 1; i < ocn(a); i++)
+  for (let i = 1; i < ocn(a); i++)
     if (ocn(a[i]) > 1) {
       v = false;
       break;
@@ -425,8 +428,8 @@ function spaceword(t) {
   return v;
 }
 function fetchvalu(o) {
-  var r = {};
-  for (var i in o)
+  const r = {};
+  for (const i in o)
     if (o[i].type == "phone" || o[i].name == "phone") {
       r[i] = "0" + parse(o[i].value);
     } else if (
@@ -455,27 +458,27 @@ function fetchvalu(o) {
   return r;
 }
 var but = function (v, t, id, c, ro) {
-  var d = $$$("button", id, c);
+  const d = $$$("button", id, c);
   attme(d, ro);
   d.type = t;
   if (typeof v == "string") {
     d.innerHTML = v;
   } else {
-    for (var i in v) APP(d, v[i]);
+    for (const i in v) APP(d, v[i]);
   }
   return d;
 };
 function addEvent(element, event, func) {
   return element.addEventListener(event, func);
 }
-var select = (a, id, cl, at, fnc, fc) => {
-  var rd = $$$("select", id, cl ? cl : "form-control", at),
+const select = (a, id, cl, at, fnc, fc) => {
+  let rd = $$$("select", id, cl ? cl : "form-control", at),
     p = cta(a)[0],
     k,
     eo = { e: rd, f1: myf1 };
-  for (var i in a) APP(rd, myboy(i));
+  for (const i in a) APP(rd, myboy(i));
   function myboy(v) {
-    var op = $$$(
+    const op = $$$(
       "option",
       "sel-opt",
       "text-gray-700 dark:text-gray-100 dark:bg-gray-700"
@@ -486,7 +489,7 @@ var select = (a, id, cl, at, fnc, fc) => {
   }
   function myf1(v) {
     rd.innerHTML = "";
-    for (var i in v) APP(rd, myboy(i));
+    for (const i in v) APP(rd, myboy(i));
   }
   if (fnc)
     k = setInterval(() => {
@@ -498,7 +501,7 @@ var select = (a, id, cl, at, fnc, fc) => {
   return eo;
 };
 function resetkeys(r, a) {
-  for (var i in r)
+  for (const i in r)
     if (r[i].textContent != a[i]) {
       r[i].textContent = a[i];
       r[i].style.color = "";
@@ -510,31 +513,31 @@ function redtxt(el, tx) {
   //feedme(el,[icon('alerti','red'),span(tx,'red','',{color:'red'})]);
   el.style.color = "red";
 }
-function validate(ul,sk) {
-  var vali = '';
-  for (var i in ul) {
+function validate(ul, sk) {
+  let vali = "";
+  for (const i in ul) {
     if (!ul[i].value && (!sk || !sk[i])) {
-      vali = ( "Enter " + i);
-      break
+      vali = "Enter " + i;
+      break;
     } else if (ul[i].type == "email") {
       if (!ebmail(ul[i].value)) {
-        vali = ("invalid email");
-        break
+        vali = "invalid email";
+        break;
       }
     } else if (
       ul[i].placeholder &&
       ul[i].placeholder.toLowerCase() == "gender"
     ) {
       if (!isgender(ul[i].value)) {
-        vali = ('gender must either be "male" or "female"');
+        vali = 'gender must either be "male" or "female"';
         break;
       }
     }
   }
   return vali;
 }
-var input = function (id, c, at, ta, vl, fn) {
-  var v = ta ? "textarea" : "input",
+const input = function (id, c, at, ta, vl, fn) {
+  const v = ta ? "textarea" : "input",
     rd = $$$(v, id, c, at, vl);
   if (ta) rd.style.minHeight = "10em";
   if (fn)
@@ -546,7 +549,7 @@ var input = function (id, c, at, ta, vl, fn) {
       fn.f(rd.value);
     });
   addEvent(rd, "keydown", (v) => {
-    var e = v.key,
+    const e = v.key,
       ev = v.code;
     if (e == "Enter" || ev == "Enter") {
       v.preventDefault();
@@ -554,8 +557,8 @@ var input = function (id, c, at, ta, vl, fn) {
   });
   return rd;
 };
-var phul2 = function (ar, ra, as, vl, ob, ns, tp, tc) {
-  var ul = $$$("form", "", "p-1"),
+const phul2 = function (ar, ra, as, vl, ob, ns, tp, tc) {
+  let ul = $$$("form", "", "p-1"),
     rd = DIV("widthun", "", "", [ul]),
     wc = 1,
     b = {},
@@ -571,7 +574,7 @@ var phul2 = function (ar, ra, as, vl, ob, ns, tp, tc) {
     w,
     x,
     so;
-  for (var i in ar) {
+  for (const i in ar) {
     v = ra && ra[i] ? ra[i] : "";
     k = as && as[i] ? as[i] : "";
     x = "input-" + wc;
@@ -623,7 +626,7 @@ var phul2 = function (ar, ra, as, vl, ob, ns, tp, tc) {
   }
   if (ob) feedme(ul, ob);
   function myf1(o) {
-    for (var i in o) {
+    for (const i in o) {
       k = ocn(ra) ? "enter " + i : i;
       x = "input-" + wc;
       o[i].id = x;
@@ -671,16 +674,16 @@ function POP(p, c) {
 }
 function capname(n) {
   if (n.length === 1) return n.toUpperCase();
-  var a = n.charAt(0).toUpperCase(),
+  const a = n.charAt(0).toUpperCase(),
     b = n.slice(1, n.length).toLowerCase(),
     c = a + b;
   return c;
 }
 function acronym(w) {
-  var a = w.split("."),
+  let a = w.split("."),
     s = true;
   if (ocn(a) > 1) {
-    for (var i in a)
+    for (const i in a)
       if (ocn(a[i]) > 1) {
         s = false;
         break;
@@ -693,15 +696,15 @@ function acronym(w) {
 function cleaname(n) {
   if (!n) return "";
   if (parseInt(n) || typeof n === "number") return n;
-  var a = n.split(" "),
+  let a = n.split(" "),
     c = "",
     d = [];
-  for (var i = 0; i < a.length; i++) {
+  for (let i = 0; i < a.length; i++) {
     if (a[i]) {
       d.push(acronym(a[i]) ? a[i].toUpperCase() : capname(a[i]));
     }
   }
-  for (var k = 0; k < d.length; k++) {
+  for (let k = 0; k < d.length; k++) {
     if (k === d.length - 1) {
       c += d[k];
     } else {
@@ -714,15 +717,15 @@ function cleaname(n) {
 function cleantxt(n) {
   if (!n) return "";
   if (parseInt(n) || typeof n === "number") return n;
-  var a = n.split(" "),
+  let a = n.split(" "),
     c = "",
     d = [];
-  for (var i = 0; i < a.length; i++) {
+  for (let i = 0; i < a.length; i++) {
     if (a[i]) {
       d.push(a[i]);
     }
   }
-  for (var k = 0; k < d.length; k++) {
+  for (let k = 0; k < d.length; k++) {
     if (k === d.length - 1) {
       c += d[k];
     } else {
@@ -732,39 +735,39 @@ function cleantxt(n) {
   return c;
 }
 function joinus(a) {
-  var v = "";
-  for (var i in a) {
+  let v = "";
+  for (const i in a) {
     v = v + "" + a[i];
   }
   return v;
 }
 function ee(e) {
-  var r = e || window.event;
+  let r = e || window.event;
   r = e.target || e.srcElement;
   return r;
 }
 function clonetxt(tx) {
   if (typeof tx != "string") return tx;
-  var a = tx.split(""),
+  let a = tx.split(""),
     b = "";
-  for (var i in a) b += a[i];
+  for (const i in a) b += a[i];
 
   return b;
 }
 function clonea(a) {
-  var r = [];
-  for (var i in a) r.push(a[i]);
+  const r = [];
+  for (const i in a) r.push(a[i]);
   return r;
 }
 function cloneo(a) {
   if (!a) return {};
-  var x = jp(clonetxt(Js(a))),
+  const x = jp(clonetxt(Js(a))),
     r = {};
-  for (var i in a) r[i] = x[i];
+  for (const i in a) r[i] = x[i];
   return r;
 }
 function jp(s) {
-  var o;
+  let o;
   try {
     o = JSON.parse(s);
     return o;
@@ -773,18 +776,18 @@ function jp(s) {
   }
 }
 function Js(o) {
-  return !jp(o)?o:JSON.stringify(o);
+  return !jp(o) ? o : JSON.stringify(o);
 }
 function js(o) {
   return JSON.stringify(o);
 }
 function mrgarrays(a, b) {
-  var o = {};
-  for (var i in a) o[a[i]] = b[i];
+  const o = {};
+  for (const i in a) o[a[i]] = b[i];
   return o;
 }
 function sortOb(o) {
-  var a = [],
+  let a = [],
     no = {};
   for (var i in o) {
     a.push(i);
@@ -796,7 +799,7 @@ function sortOb(o) {
   return no;
 }
 function stotal(o) {
-  var t = 0,
+  let t = 0,
     b = "fa,sa,ft,st,ex,ttl,pos,grd".split(","),
     a2 = "ass1,ass2,ca1,ca2,ex,ttl,pos,grd".split(","),
     a3 = "pro,ass,ca1,ca2,ex,ttl,pos,grd".split(","),
@@ -805,14 +808,14 @@ function stotal(o) {
   if (e[0] == b[0]) k = b;
   if (e[0] == a2[0]) k = a2;
   if (e[0] == a3[0]) k = a3;
-  for (var i = 0; i < 5; i++) {
+  for (let i = 0; i < 5; i++) {
     if (o[k[i]]) t += parse(o[k[i]]);
   }
   return t;
 }
 function gradepoint(t) {
   if (!t) return "";
-  var sum = parseup(t),
+  let sum = parseup(t),
     grd = "",
     k;
   if (sum >= 96 && sum <= 100) {
@@ -1014,7 +1017,7 @@ function gradepoint(t) {
 }
 function grade(t) {
   if (!t) return "F9";
-  var sum = parse(t),
+  let sum = parse(t),
     grd = "";
   if (sum >= 90 && sum <= 100) grd = "A1";
   if (sum >= 80 && sum < 90) grd = "B2";
@@ -1037,7 +1040,7 @@ function posob(sa, po, a) {
     tb = {},
     t = [],
     np = 1;
-  for (var i in a) {
+  for (const i in a) {
     if (!sa[a.length - 1] || p > a.length) break;
     for (var k in sa) {
       if (!sa[k]) continue;
@@ -1090,12 +1093,12 @@ function posob(sa, po, a) {
   return po;
 }
 function postus(o) {
-  var b = ov2a(o),
+  let b = ov2a(o),
     c = posob(sortna(ov2a(o)), o, b);
   b = {};
-  for (var i in c) {
+  for (const i in c) {
     if (typeof c[i] == "object") {
-      for (var v in c[i]) b[c[i][v]] = atme(i);
+      for (const v in c[i]) b[c[i][v]] = atme(i);
     } else {
       b[c[i]] = atme(i);
     }
@@ -1105,7 +1108,7 @@ function postus(o) {
 function atme(p) {
   if (!p) return;
   if (typeof p != "string") p = p.toString();
-  var a = ["st", "nd", "rd", "th"],
+  let a = ["st", "nd", "rd", "th"],
     k = p.charAt(p.length - 1),
     c = "",
     w = p.toString();
@@ -1125,7 +1128,7 @@ function atme(p) {
 }
 function rnd(f, r, em) {
   if (!f) return "";
-  var s = f.toString(),
+  let s = f.toString(),
     w = isfra(f),
     x,
     y,
@@ -1152,7 +1155,7 @@ function rnd(f, r, em) {
       z = w.slice(0, ocn(w) - 1) + "" + z;
       return parseFloat(s[0] + "." + z);
     }
-    for (var i = ocn(x) - 1; i > -1; i--)
+    for (let i = ocn(x) - 1; i > -1; i--)
       if (i != 0)
         if (parse(x[i]) > 4 && parse(x[i - 1]) != 9)
           x[i - 1] = parse(x[i - 1]) + 1;
@@ -1165,16 +1168,16 @@ function rnd(f, r, em) {
   }
 }
 var ov2a = (o, b) => {
-  var a = [],
+  const a = [],
     c = b ? b : o;
-  for (var i in c) a.push(o[i]);
+  for (const i in c) a.push(o[i]);
   return a;
 };
 function ext(o, c) {
-  var x = false;
-  for (var i in o) {
+  let x = false;
+  for (const i in o) {
     if (typeof o[i] == "object") {
-      for (var v in o[i]) {
+      for (const v in o[i]) {
         if (o[i][v] == c) {
           x = true;
           break;
@@ -1191,7 +1194,7 @@ function ext(o, c) {
   return x;
 }
 function sortna(a) {
-  var o = {},
+  let o = {},
     h = 0,
     c,
     ta = [];
@@ -1199,7 +1202,7 @@ function sortna(a) {
     ta.push(a[i]);
   }
   for (var i in ta) {
-    for (var j in ta) {
+    for (const j in ta) {
       if (ta[j] != "" && ta[j] > h) {
         h = ta[j];
         c = j;
@@ -1212,14 +1215,14 @@ function sortna(a) {
   return o;
 }
 function rfo(o, r) {
-  for (var i in o) {
+  for (const i in o) {
     if (o[i] == r) delete o[i];
   }
 }
 function suma(o) {
-  var t = 0,
+  let t = 0,
     g;
-  for (var i in o) {
+  for (const i in o) {
     if (
       i != "grd" &&
       i != "ttl" &&
@@ -1244,13 +1247,13 @@ function suma(o) {
   return t;
 }
 function sume(d, o, x, y) {
-  var a = suma(o);
+  const a = suma(o);
   x[d] = a;
   y.push(a);
 }
 function markcolor(t) {
   if (!t) return "red";
-  var sum = parse(t),
+  let sum = parse(t),
     grd = "";
   if (sum >= 90 && sum <= 100) grd = "grey6";
   if (sum >= 91 && sum < 96) grd = "grey6";
@@ -1266,7 +1269,7 @@ function markcolor(t) {
 }
 function remark(t) {
   if (!t) return "";
-  var sum = parse(t),
+  let sum = parse(t),
     grd = "";
   if (sum >= 96 && sum <= 100) grd = "Distinction";
   if (sum >= 91 && sum < 96) grd = "Distinction";
@@ -1279,8 +1282,8 @@ function remark(t) {
   if (sum < 50) grd = "Fail";
   return grd;
 }
-var a4box = function (c) {
-  var rd = colbox("result", 12, 12, 12, 12, c),
+const a4box = function (c) {
+  const rd = colbox("result", 12, 12, 12, 12, c),
     eo = { e: rd };
   attme(rd, {
     size: "A4",
@@ -1290,7 +1293,7 @@ var a4box = function (c) {
   addclass(rd, "page");
   return eo;
 };
-var jtab = function (id, at, cl) {
+const jtab = function (id, at, cl) {
   return $$$(
     "table",
     id,
@@ -1299,7 +1302,7 @@ var jtab = function (id, at, cl) {
     cl
   );
 };
-var etab = function (id, at, cl, c) {
+const etab = function (id, at, cl, c) {
   return $$$(
     "table",
     id,
@@ -1310,25 +1313,25 @@ var etab = function (id, at, cl, c) {
     cl
   );
 };
-var ctab = function (id, at, cl) {
+const ctab = function (id, at, cl) {
   return $$$("table", id, "table nomargin widthun", at, cl);
 };
-var tbod = function (i, c, at, cl) {
+const tbod = function (i, c, at, cl) {
   return $$$("tbody", i, c, at, cl);
 };
-var img = function (s, i, c, at) {
-  var rd = $$$("img", i, c);
+const img = function (s, i, c, at) {
+  const rd = $$$("img", i, c);
   rd.src = s;
   attme(rd, at);
   return rd;
 };
-var thed = function (id, c, a, tc, ta) {
-  var rd = $$$("tr", id, c),
+const thed = function (id, c, a, tc, ta) {
+  let rd = $$$("tr", id, c),
     th = $$$("th", "", "text-center borderb", "", [
       anc("", a[0], "text-center text-gray-700 dark:text-gray-100 mx-1 font13"),
     ]);
   APP(rd, th);
-  for (var i = 1; i < a.length; i++) {
+  for (let i = 1; i < a.length; i++) {
     th = $$$(
       "th",
       "",
@@ -1342,15 +1345,15 @@ var thed = function (id, c, a, tc, ta) {
   }
   return rd;
 };
-var thed2 = function (id, c, a) {
-  var rd = $$$("tr", id, c),
+const thed2 = function (id, c, a) {
+  let rd = $$$("tr", id, c),
     th;
-  for (var i = 0; i < a.length; i++)
+  for (let i = 0; i < a.length; i++)
     APP(rd, $$$("td", "", "text-center", "", [small(a[i], "").e]));
   return rd;
 };
-var span = function (tx, id, c, at) {
-  var sp = $$$("span", id, c);
+const span = function (tx, id, c, at) {
+  const sp = $$$("span", id, c);
   attme(sp, at);
   if (typeof tx != "object") {
     sp.innerHTML = tx ? tx : "";
@@ -1360,7 +1363,7 @@ var span = function (tx, id, c, at) {
   return sp;
 };
 function lowscorer(o) {
-  var x = {},
+  let x = {},
     y = [],
     z,
     u = false,
@@ -1400,7 +1403,7 @@ function lowscorer(o) {
   }
 }
 function topscorer(o) {
-  var x = {},
+  let x = {},
     y = [],
     z = 1,
     u = false,
@@ -1439,17 +1442,17 @@ function topscorer(o) {
   }
 }
 function gradeus(o) {
-  var a = {};
-  for (var i in o) a[i] = grade(o[i]);
+  const a = {};
+  for (const i in o) a[i] = grade(o[i]);
   return a;
 }
 function leastone(o) {
-  var a = {};
-  for (var i in o) a[i] = o[i] ? o[i] : 1;
+  const a = {};
+  for (const i in o) a[i] = o[i] ? o[i] : 1;
   return a;
 }
 function tmpost(o) {
-  var a = {},
+  let a = {},
     b,
     c,
     d;
@@ -1467,8 +1470,8 @@ function tmpost(o) {
   }
   return b;
 }
-var psychoaffectrate = () => {
-  var b = "EXEMPLARY,PROFICIENT,CAPABLE,PROGRESSIVE,NOT MEETING STANDARD".split(
+const psychoaffectrate = () => {
+  let b = "EXEMPLARY,PROFICIENT,CAPABLE,PROGRESSIVE,NOT MEETING STANDARD".split(
       ","
     ),
     w = [5, 4, 3, 2, 1],
@@ -1490,7 +1493,7 @@ var psychoaffectrate = () => {
     x1,
     x2,
     x3;
-  for (var i = 0; i < ocn(w); i++) {
+  for (let i = 0; i < ocn(w); i++) {
     tr = $$$("tr", "grdsys-tr", "", "", [
       $$$("td", "grdsys-td", "borderb", "", [
         small(w[i] + "-" + b[i], "lfloat", f[i] + " font9").e,
@@ -1500,8 +1503,8 @@ var psychoaffectrate = () => {
   }
   return eo;
 };
-var psychomotordom = (a, o) => {
-  var b = ["S/N", "", 5, 4, 3, 2, 1],
+const psychomotordom = (a, o) => {
+  let b = ["S/N", "", 5, 4, 3, 2, 1],
     w = [5, 4, 3, 2, 1],
     f = "grey6,green,green,blue,red".split(","),
     th = thed("grdsys-thd", "", b),
@@ -1521,7 +1524,7 @@ var psychomotordom = (a, o) => {
     x4,
     x5,
     x6;
-  for (var i = 0; i < ocn(a); i++) {
+  for (let i = 0; i < ocn(a); i++) {
     tr = $$$("tr", "grdsys-tr");
     APP(tb, tr);
     x3 = small(i + 1, "rfloat").e;
@@ -1550,8 +1553,8 @@ var psychomotordom = (a, o) => {
   }
   return eo;
 };
-var affectivedom = (a, o) => {
-  var b = ["S/N", "", 5, 4, 3, 2, 1],
+const affectivedom = (a, o) => {
+  let b = ["S/N", "", 5, 4, 3, 2, 1],
     w = [5, 4, 3, 2, 1],
     f = "grey6,green,green,blue,red".split(","),
     th = thed("grdsys-thd", "", b),
@@ -1571,7 +1574,7 @@ var affectivedom = (a, o) => {
     x4,
     x5,
     x6;
-  for (var i = 0; i < ocn(a); i++) {
+  for (let i = 0; i < ocn(a); i++) {
     tr = $$$("tr", "grdsys-tr", "line1");
     APP(tb, tr);
     x3 = small(i + 1, "rfloat").e;
@@ -1601,8 +1604,8 @@ var affectivedom = (a, o) => {
 
   return eo;
 };
-var gradesystem = () => {
-  var a = [
+const gradesystem = () => {
+  let a = [
       "96-100",
       "91-95",
       "86-90",
@@ -1636,10 +1639,10 @@ var gradesystem = () => {
     x1,
     x2,
     x3;
-  for (var i = 0; i < ocn(a); i++) {
+  for (let i = 0; i < ocn(a); i++) {
     tr = $$$("tr", "grdsys-tr");
     APP(tb, tr);
-    for (var v in ak)
+    for (const v in ak)
       APP(
         tr,
         $$$("td", "grdsys-td", "borderb", "", [
@@ -1651,8 +1654,8 @@ var gradesystem = () => {
   return eo;
 };
 function nia(o, n) {
-  var chk = 0;
-  for (var i in o)
+  let chk = 0;
+  for (const i in o)
     if (o[i] == n) {
       chk = parse(i);
       break;
@@ -1660,8 +1663,8 @@ function nia(o, n) {
   return chk;
 }
 function ourids(o) {
-  var a = {};
-  for (var i in o) {
+  const a = {};
+  for (const i in o) {
     a[o[i].id] = i;
   }
 
@@ -1669,7 +1672,7 @@ function ourids(o) {
 }
 function barme(t) {
   if (!t) return "0";
-  var k = typeof t == "number" ? unbar(t.toString()) : unbar(t),
+  let k = typeof t == "number" ? unbar(t.toString()) : unbar(t),
     s = k,
     a = [],
     x,
@@ -1693,11 +1696,11 @@ function barme(t) {
 }
 function unbar(t) {
   if (!t) return;
-  var x = t,
+  let x = t,
     r = "";
   x = x.replace("N", "");
   x = x.split(",");
-  for (var i in x) {
+  for (const i in x) {
     r += x[i];
   }
   return r;
@@ -1706,21 +1709,21 @@ function isbar(v) {
   return parseInt(unbar(v));
 }
 function sumarray(o) {
-  var a = 0;
-  for (var i in o) if (parse(o[i])) a += parse(o[i]);
+  let a = 0;
+  for (const i in o) if (parse(o[i])) a += parse(o[i]);
   return a;
 }
 function percent(p, n, r) {
-  var a = n / 100;
+  const a = n / 100;
   return r ? rnd(a * p, r) : a * p;
 }
 function percentage(p, n, r) {
   if (!n) return 0;
-  var a = r ? rnd((n / p) * 100, r) : (n / p) * 100;
+  const a = r ? rnd((n / p) * 100, r) : (n / p) * 100;
   return a;
 }
 function fileinfo(o) {
-  var dt = datemap(),
+  const dt = datemap(),
     k = o.name.split("."),
     b = "file-" + dt.key + ("." + k[ocn(k) - 1]);
   clg({
@@ -1746,8 +1749,8 @@ function uploadpercent(o, fnc) {
     UB.fx();
   }
 }
-var progressbar = (v) => {
-  var w,
+const progressbar = (v) => {
+  let w,
     p,
     rd = DIV("", "progress ", ""),
     eo = { e: rd, f1: myf1 };
@@ -1773,7 +1776,7 @@ var progressbar = (v) => {
   return eo;
 };
 var uploadbox = (v) => {
-  var h = small("", "blue").e,
+  let h = small("", "blue").e,
     hd = DIV("", "", "", [
       hea(3, "File Upload", "", "font-bold text-black dark:text-white my-2"),
     ]),
@@ -1811,50 +1814,65 @@ var uploadbox = (v) => {
     pb.f1({ c: "bpurple", p: o.p });
   }
 };
-function myhost(c){
-  return c?window.location.hostname=='localhost':window.location.hostname;
+function myhost(c) {
+  return c ? window.location.hostname == "localhost" : window.location.hostname;
 }
-function readme(t){
-  let a=window.localStorage.getItem(t);
+function readme(t) {
+  const a = window.localStorage.getItem(t);
   return jp(a);
 }
-function removeme(t){
+function removeme(t) {
   return window.localStorage.removeItem(t);
 }
-function storeme(t,o){if(!o)return;clg(o);
-  window.localStorage.setItem(t,Js(o));
+function storeme(t, o) {
+  if (!o) return;
+  clg(o);
+  window.localStorage.setItem(t, Js(o));
 }
-function noscores(o){
-  var x=cto(['ass1','ass2','ca1','ca2','ex']),a=true;for(var i in o)for(var v in x)if(o[i][v]){a=false;break;};return a;
-}
-function mrgscores(o){
-  var a={},b=cto(['ass1','ass2','ca1','ca2','ex','ttl']),c=ocn(o);
-  for(var i in o)for(var v in o[i]){
-    if(!a[v]){
-      a[v]={};for(var r in b)a[v][r]=(o[i][v][r])?parse(o[i][v][r]):0;
-    }else{
-      for(var r in b)if(o[i][v][r])a[v][r]+=parse(o[i][v][r]);
-    }
-    
-  }
-  for(var i in a)for(var v in a[i])a[i][v]=rnd((a[i][v]/c),2);
+function noscores(o) {
+  let x = cto(["ass1", "ass2", "ca1", "ca2", "ex"]),
+    a = true;
+  for (const i in o)
+    for (const v in x)
+      if (o[i][v]) {
+        a = false;
+        break;
+      }
   return a;
-  
 }
-function mysiblin(o,e,f){clg(o);clg(e);
-  var a=cta(o),b='',c;
-  for(var i=0;i<ocn(a);i++){
-    if(a[i]==e){
-      if(f){
-        b=(i==(ocn(a)-1))?0:(i+1);
-      }else{
-        b=(i==0)?(ocn(a)-1):(i-1);
+function mrgscores(o) {
+  const a = {},
+    b = cto(["ass1", "ass2", "ca1", "ca2", "ex", "ttl"]),
+    c = ocn(o);
+  for (var i in o)
+    for (var v in o[i]) {
+      if (!a[v]) {
+        a[v] = {};
+        for (var r in b) a[v][r] = o[i][v][r] ? parse(o[i][v][r]) : 0;
+      } else {
+        for (var r in b) if (o[i][v][r]) a[v][r] += parse(o[i][v][r]);
+      }
+    }
+  for (var i in a) for (var v in a[i]) a[i][v] = rnd(a[i][v] / c, 2);
+  return a;
+}
+function mysiblin(o, e, f) {
+  clg(o);
+  clg(e);
+  let a = cta(o),
+    b = "",
+    c;
+  for (let i = 0; i < ocn(a); i++) {
+    if (a[i] == e) {
+      if (f) {
+        b = i == ocn(a) - 1 ? 0 : i + 1;
+      } else {
+        b = i == 0 ? ocn(a) - 1 : i - 1;
       }
     }
   }
-  c=(b||b.toString()=='0')?a[b]:e;
+  c = b || b.toString() == "0" ? a[b] : e;
   return c;
-  
 }
 function windowsize() {
   return {
@@ -1862,35 +1880,67 @@ function windowsize() {
     height: window.innerHeight,
   };
 }
-function nopikin(o){
-  var a=false;
-  for(var i in o)if(!o[i]){a=i;break;}
+function nopikin(o) {
+  let a = false;
+  for (const i in o)
+    if (!o[i]) {
+      a = i;
+      break;
+    }
   return a;
 }
-var mrgob=(a,b)=>{
-  var o={};
-  for(var i in a)o[i]=a[i];
-  for(var i in b)o[i]=b[i];
+const mrgob = (a, b) => {
+  const o = {};
+  for (var i in a) o[i] = a[i];
+  for (var i in b) o[i] = b[i];
   return o;
-}
-function rio(o,a,b){
-  var c={};for(var i in o)if(i!=a){c[i]=o[i]}else{if(typeof b=='object'){for(var v in b)c[v]=b[v];}else{c[b]=o[i];}};return c;
+};
+function rio(o, a, b) {
+  const c = {};
+  for (const i in o)
+    if (i != a) {
+      c[i] = o[i];
+    } else {
+      if (typeof b == "object") {
+        for (const v in b) c[v] = b[v];
+      } else {
+        c[b] = o[i];
+      }
+    }
+  return c;
 }
 function myage(dt: string) {
-  let x = dt.split("-")[0];
+  const x = dt.split("-")[0];
   return parse(datemap().y) - parse(x);
 }
-function filteranswers(ans){
-  let a=[];for(var i in ans)if(!a.find(an=>an.questionId===ans[i].questionId)){a.push(ans[i])}else{a=a.map(an=>{
-    return an.questionId==ans[i].questionId?ans[i]:an;
-  })};return a;
+function filteranswers(ans) {
+  let a = [];
+  for (var i in ans)
+    if (!a.find((an) => an.questionId === ans[i].questionId)) {
+      a.push(ans[i]);
+    } else {
+      a = a.map((an) => {
+        return an.questionId == ans[i].questionId ? ans[i] : an;
+      });
+    }
+  return a;
 }
 
-
-
 export {
-  filteranswers,datemap,mysiblin,myhost,mrgscores,readme,storeme,removeme,windowsize,rio,
-  uploadpercent,nopikin,mrgob,myage,
+  filteranswers,
+  datemap,
+  mysiblin,
+  myhost,
+  mrgscores,
+  readme,
+  storeme,
+  removeme,
+  windowsize,
+  rio,
+  uploadpercent,
+  nopikin,
+  mrgob,
+  myage,
   fileinfo,
   percent,
   percentage,
@@ -1939,7 +1989,8 @@ export {
   clonetxt,
   jp,
   js,
-  Js,X,
+  Js,
+  X,
   mrgarrays,
   modal,
   phul2,
@@ -1953,7 +2004,9 @@ export {
   DIV,
   stotal,
   grade,
-  gradepoint,parseup,noscores,
+  gradepoint,
+  parseup,
+  noscores,
   postus,
   rnd,
   par,
