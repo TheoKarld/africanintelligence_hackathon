@@ -24,6 +24,7 @@ import Carousel2 from "@/assets/Carosel_2.jpeg";
 import Carousel3 from "@/assets/Carosel_3.jpg";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
+import SocialProofSection from "@/components/home/SocialProofSection";
 
 const Index = () => {
   const navigate = useNavigate();
@@ -120,30 +121,6 @@ const Index = () => {
         "https://images.pexels.com/photos/3184338/pexels-photo-3184338.jpeg?auto=compress&cs=tinysrgb&w=800",
       rating: 4.7,
       students: 520,
-    },
-  ];
-
-  const testimonials = [
-    {
-      text: "The AI course transformed my career! I now lead a tech team developing solutions for agricultural challenges in East Africa.",
-      name: "Makena Ochieng",
-      role: "Data Scientist, Kenya",
-      image:
-        "https://images.pexels.com/photos/2379005/pexels-photo-2379005.jpeg?auto=compress&cs=tinysrgb&w=100",
-    },
-    {
-      text: "The personalized learning approach and community support made complex AI concepts accessible and applicable to our local challenges.",
-      name: "Fatima Diallo",
-      role: "AI Developer, Senegal",
-      image:
-        "https://images.pexels.com/photos/1239291/pexels-photo-1239291.jpeg?auto=compress&cs=tinysrgb&w=100",
-    },
-    {
-      text: "This platform bridges theory with practical application. I've implemented what I learned to improve healthcare delivery in my community.",
-      name: "Emmanuel Nkosi",
-      role: "Health Tech Innovator, South Africa",
-      image:
-        "https://images.pexels.com/photos/3748221/pexels-photo-3748221.jpeg?auto=compress&cs=tinysrgb&w=100",
     },
   ];
 
@@ -310,42 +287,8 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Testimonials */}
-      <section className="py-20 bg-white">
-        <div className="container mx-auto px-6">
-          <h2 className="text-4xl font-bold text-gray-900 mb-4 text-center">
-            Success Stories
-          </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto text-center mb-12">
-            Hear from our learners who have transformed their careers and made
-            an impact across Africa.
-          </p>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {testimonials.map((testimonial, index) => (
-              <motion.div
-                key={index}
-                whileHover={{ y: -10 }}
-                className="bg-gray-50 p-6 rounded-xl shadow-lg border border-gray-100"
-              >
-                <p className="text-gray-700 italic mb-6">
-                  "{testimonial.text}"
-                </p>
-                <div className="flex items-center">
-                  <img
-                    src={testimonial.image}
-                    alt={testimonial.name}
-                    className="w-12 h-12 rounded-full mr-4 object-cover"
-                  />
-                  <div>
-                    <p className="font-semibold">{testimonial.name}</p>
-                    <p className="text-gray-600 text-sm">{testimonial.role}</p>
-                  </div>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
+      {/* Social Proof Section */}
+      <SocialProofSection />
 
       {/* CTA */}
       <section className="py-20 bg-gradient-to-r from-red-600 to-red-700 text-white">
