@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import {
   Cpu,
   BookOpen,
@@ -391,12 +391,12 @@ const Index = () => {
                   </a>
                 </li>
                 <li>
-                  <a
-                    href="#"
+                  <Link
+                    to="/faq"
                     className="text-gray-400 hover:text-white transition-colors"
                   >
                     FAQ
-                  </a>
+                  </Link>
                 </li>
                 <li>
                   <a

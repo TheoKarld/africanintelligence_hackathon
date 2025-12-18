@@ -129,20 +129,29 @@ const SocialProofSection = () => {
   const c12: ImageItem = {
     id: "12",
     type: "image",
-    src: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&q=80&w=800",
-    name: "Moussa Traoré",
+    src: "https://images.unsplash.com/photo-1531384441138-2736e62e0919?auto=format&fit=crop&q=80&w=800",
+    name: "Jean-Paul Ewane",
     role: "Backend\nDeveloper",
-    location: "Bamako, Mali",
+    location: "Douala, Cameroon",
     colorOverlay: "from-cyan-900/60",
   };
   const c13: ImageItem = {
     id: "13",
     type: "image",
-    src: "https://images.unsplash.com/photo-1567532939604-b6b5b0db2604?auto=format&fit=crop&q=80&w=800",
-    name: "Nneka Williams",
+    src: "https://images.unsplash.com/photo-1589156229687-496a31ad1d1f?auto=format&fit=crop&q=80&w=800",
+    name: "Mariama Camara",
     role: "UX Design\nLead",
-    location: "Johannesburg, SA",
+    location: "Conakry, Guinea",
     colorOverlay: "from-fuchsia-900/60",
+  };
+  const c14: ImageItem = {
+    id: "14",
+    type: "image",
+    src: "https://images.unsplash.com/photo-1639762681485-074b7f938ba0?auto=format&fit=crop&q=80&w=800",
+    name: "Blockchain Verification",
+    role: "Blockchain Education Certificate\nOn Completion",
+    location: "VERIFIED SECURE",
+    colorOverlay: "from-blue-900/60",
   };
 
   const baseColumns: Column[] = [
@@ -155,6 +164,7 @@ const SocialProofSection = () => {
     { type: "single", item: c10 },
     { type: "stacked", top: c11, bottom: c12 },
     { type: "single", item: c13 },
+    { type: "single", item: c14 },
   ];
 
   const columns = [...baseColumns, ...baseColumns];
@@ -257,7 +267,7 @@ const SocialProofSection = () => {
           animate={{ x: ["0%", "-50%"] }}
           transition={{
             ease: "linear",
-            duration: 120,
+            duration: 60,
             repeat: Infinity,
             repeatType: "loop",
           }}

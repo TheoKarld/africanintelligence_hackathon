@@ -1,9 +1,8 @@
-
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { AuthProvider } from "./contexts/AuthContext";
 import { TourLMSProvider } from "./contexts/TourLMSContext";
 import AdminDashboard from "./pages/admin/Dashboard";
-import { GoogleOAuthProvider } from '@react-oauth/google';
+import { GoogleOAuthProvider } from "@react-oauth/google";
 import FacilitatorDashboard from "./pages/facilitator/Dashboard";
 import StudentDashboard from "./pages/student/Dashboard";
 import Login from "./pages/auth/Login";
@@ -26,7 +25,7 @@ import Students from "./pages/facilitator/Students";
 import UserAccount from "./pages/common/UserAccount";
 import Security from "./pages/common/Security";
 import Index from "./pages/Index";
-import {clientID} from './lib/basic';
+import { clientID } from "./lib/basic";
 import AdminLayout from "./components/layout/AdminLayout";
 import AdminLogin from "./pages/admin/Login";
 import AdminStudents from "./pages/admin/Students";
@@ -43,73 +42,93 @@ import ApiDocumentation from "./pages/admin/ApiDocumentation";
 import ApiDocumentationStudents from "./pages/student/ApiDocumentationStudents";
 import ApiDocumentationFac from "./pages/facilitator/ApiDocumentationFac";
 import Contact from "./pages/Contact";
+import FAQ from "./pages/FAQ";
 
 const App = () => {
   return (
     <GoogleOAuthProvider clientId={clientID}>
-    <TourLMSProvider>
-      <AuthProvider>
-        <NavigationProvider>
-          <BrowserRouter>
-            <Routes>
-              <Route path="/" element={<Index />} />
-              <Route path="/login" element={<Login />} />
-              <Route path="/register" element={<Register />} />
-              <Route path="/welcome" element={<Welcome />} />
-              <Route path="/contact" element={<Contact />} />
-              
-              {/* Oracle/Admin Routes */}
-              <Route path="/oracle/login" element={<AdminLogin />} />
-              <Route path="/oracle" element={<AdminLayout />}>
-                <Route index element={<AdminDashboard />} />
-                <Route path="students" element={<AdminStudents />} />
-                <Route path="students/:id" element={<AdminStudentDetail />} />
-                <Route path="facilitators" element={<AdminFacilitators />} />
-                <Route path="facilitators/:id" element={<AdminFacilitatorDetail />} />
-                <Route path="analytics" element={<AdminAnalytics />} />
-                <Route path="events" element={<AdminEvents />} />
-                <Route path="notifications" element={<AdminNotifications />} />
-                <Route path="apiDocs" element={<ApiDocumentation />} />
-                <Route path="events/:id" element={<AdminEventDetail />} />
-              </Route>
-              
-              {/* Protected Routes */}
-              <Route path="/admin" element={<Layout userType="admin" />}>
-                <Route index element={<AdminDashboard />} />
-              </Route>
-              
-              <Route path="/facilitator" element={<Layout userType="facilitator" />}>
-                <Route index element={<FacilitatorDashboard />} />
-                <Route path="create-course" element={<CreateCourse />} />
-                <Route path="edit-course/:id" element={<EditCourse />} />
-                <Route path="courses" element={<CourseGrid />} />
-                <Route path="courses/:id" element={<CourseDetail />} />
-                <Route path="drafts" element={<DraftCourses />} />
-                <Route path="forum" element={<GeneralForum />} />
-                <Route path="analytics" element={<FacilitatorAnalytics />} />
-                <Route path="students" element={<Students />} />
-                <Route path="apiDocs" element={<ApiDocumentationFac />} />
-                <Route path="account" element={<UserAccount userType="facilitator" />} />
-                <Route path="security" element={<Security />} />
-              </Route>
-              
-              <Route path="/student" element={<Layout userType="student" />}>
-                <Route index element={<StudentDashboard />} />
-                <Route path="courses" element={<StudentCourses />} />
-                <Route path="courses/:id" element={<StudentCourseDetail />} />
-                <Route path="events" element={<Events />} />
-                <Route path="events/:id" element={<EventDetail />} />
-                <Route path="forum" element={<Forum />} />
-                <Route path="apiDocs" element={<ApiDocumentationStudents />} />
-                <Route path="account" element={<UserAccount userType="student" />} />
-                <Route path="security" element={<Security />} />
-              </Route>
-            </Routes>
-            <Toaster />
-          </BrowserRouter>
-        </NavigationProvider>
-      </AuthProvider>
-    </TourLMSProvider>
+      <TourLMSProvider>
+        <AuthProvider>
+          <NavigationProvider>
+            <BrowserRouter>
+              <Routes>
+                <Route path="/" element={<Index />} />
+                <Route path="/login" element={<Login />} />
+                <Route path="/register" element={<Register />} />
+                <Route path="/welcome" element={<Welcome />} />
+                <Route path="/contact" element={<Contact />} />
+                <Route path="/faq" element={<FAQ />} />
+
+                {/* Oracle/Admin Routes */}
+                <Route path="/oracle/login" element={<AdminLogin />} />
+                <Route path="/oracle" element={<AdminLayout />}>
+                  <Route index element={<AdminDashboard />} />
+                  <Route path="students" element={<AdminStudents />} />
+                  <Route path="students/:id" element={<AdminStudentDetail />} />
+                  <Route path="facilitators" element={<AdminFacilitators />} />
+                  <Route
+                    path="facilitators/:id"
+                    element={<AdminFacilitatorDetail />}
+                  />
+                  <Route path="analytics" element={<AdminAnalytics />} />
+                  <Route path="events" element={<AdminEvents />} />
+                  <Route
+                    path="notifications"
+                    element={<AdminNotifications />}
+                  />
+                  <Route path="apiDocs" element={<ApiDocumentation />} />
+                  <Route path="events/:id" element={<AdminEventDetail />} />
+                </Route>
+
+                {/* Protected Routes */}
+                <Route path="/admin" element={<Layout userType="admin" />}>
+                  <Route index element={<AdminDashboard />} />
+                </Route>
+
+                <Route
+                  path="/facilitator"
+                  element={<Layout userType="facilitator" />}
+                >
+                  <Route index element={<FacilitatorDashboard />} />
+                  <Route path="create-course" element={<CreateCourse />} />
+                  <Route path="edit-course/:id" element={<EditCourse />} />
+                  <Route path="courses" element={<CourseGrid />} />
+                  <Route path="courses/:id" element={<CourseDetail />} />
+                  <Route path="drafts" element={<DraftCourses />} />
+                  <Route path="forum" element={<GeneralForum />} />
+                  <Route path="analytics" element={<FacilitatorAnalytics />} />
+                  <Route path="students" element={<Students />} />
+                  <Route path="apiDocs" element={<ApiDocumentationFac />} />
+                  <Route
+                    path="account"
+                    element={<UserAccount userType="facilitator" />}
+                  />
+                  <Route path="security" element={<Security />} />
+                </Route>
+
+                <Route path="/student" element={<Layout userType="student" />}>
+                  <Route index element={<StudentDashboard />} />
+                  <Route path="courses" element={<StudentCourses />} />
+                  <Route path="courses/:id" element={<StudentCourseDetail />} />
+                  <Route path="events" element={<Events />} />
+                  <Route path="events/:id" element={<EventDetail />} />
+                  <Route path="forum" element={<Forum />} />
+                  <Route
+                    path="apiDocs"
+                    element={<ApiDocumentationStudents />}
+                  />
+                  <Route
+                    path="account"
+                    element={<UserAccount userType="student" />}
+                  />
+                  <Route path="security" element={<Security />} />
+                </Route>
+              </Routes>
+              <Toaster />
+            </BrowserRouter>
+          </NavigationProvider>
+        </AuthProvider>
+      </TourLMSProvider>
     </GoogleOAuthProvider>
   );
 };
