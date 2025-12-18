@@ -49,7 +49,7 @@ const SocialProofSection = () => {
     type: "stat",
     gradient: "from-blue-400 to-blue-600",
     value: "$500M+",
-    label: "Paid to experts",
+    label: "Paid Opportunities",
   };
   const c3: ImageItem = {
     id: "3",
