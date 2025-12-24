@@ -26,6 +26,7 @@ import UserAccount from "./pages/common/UserAccount";
 import Security from "./pages/common/Security";
 import Index from "./pages/Index";
 import Courses from "./pages/Courses";
+import Careers from "./pages/Careers";
 import FAQ from "./pages/FAQ";
 import { clientID } from "./lib/basic";
 import Events from "./pages/student/Events";
@@ -43,6 +44,7 @@ const App = () => {
                 <Route path="/" element={<Index />} />
                 <Route path="/courses" element={<Courses />} />
                 <Route path="/faq" element={<FAQ />} />
+                <Route path="/careers" element={<Careers />} />
                 <Route path="/login" element={<Login />} />
                 <Route path="/register" element={<Register />} />
                 <Route path="/welcome" element={<Welcome />} />

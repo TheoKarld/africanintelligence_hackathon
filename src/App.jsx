@@ -43,6 +43,9 @@ import ApiDocumentationStudents from "./pages/student/ApiDocumentationStudents";
 import ApiDocumentationFac from "./pages/facilitator/ApiDocumentationFac";
 import Contact from "./pages/Contact";
 import FAQ from "./pages/FAQ";
+import Careers from "./pages/Careers";
+
+import ScrollToTop from "./components/layout/ScrollToTop";
 
 const App = () => {
   return (
@@ -51,6 +54,7 @@ const App = () => {
         <AuthProvider>
           <NavigationProvider>
             <BrowserRouter>
+              <ScrollToTop />
               <Routes>
                 <Route path="/" element={<Index />} />
                 <Route path="/login" element={<Login />} />
@@ -58,6 +62,7 @@ const App = () => {
                 <Route path="/welcome" element={<Welcome />} />
                 <Route path="/contact" element={<Contact />} />
                 <Route path="/faq" element={<FAQ />} />
+                <Route path="/careers" element={<Careers />} />
 
                 {/* Oracle/Admin Routes */}
                 <Route path="/oracle/login" element={<AdminLogin />} />

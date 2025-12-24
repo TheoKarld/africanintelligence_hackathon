@@ -383,12 +383,12 @@ const Index = () => {
                   </a>
                 </li>
                 <li>
-                  <a
-                    href="#"
+                  <Link
+                    to="/careers"
                     className="text-gray-400 hover:text-white transition-colors"
                   >
                     Careers
-                  </a>
+                  </Link>
                 </li>
                 <li>
                   <Link

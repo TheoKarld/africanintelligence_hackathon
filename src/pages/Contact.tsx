@@ -1,7 +1,14 @@
 import React, { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import { Mail, Phone, MapPin, Send, CheckCircle } from "lucide-react";
+import {
+  Mail,
+  Phone,
+  MapPin,
+  Send,
+  CheckCircle,
+  ArrowLeft,
+} from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -169,6 +176,16 @@ const Contact = () => {
     >
       {/* Hero Section */}
       <section className="relative h-[60vh] overflow-hidden">
+        {/* Back Button */}
+        <div className="absolute top-6 left-6 z-30">
+          <Link
+            to="/"
+            className="inline-flex items-center gap-2 text-white/90 hover:text-white transition-colors bg-black/30 hover:bg-black/50 px-4 py-2 rounded-full backdrop-blur-md border border-white/10"
+          >
+            <ArrowLeft className="h-5 w-5" />
+            <span className="font-medium">Back to Home</span>
+          </Link>
+        </div>
         {heroSlides.map((slide, index) => (
           <div
             key={index}

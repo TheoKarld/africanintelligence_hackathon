@@ -48,6 +48,14 @@ const FooterSection: React.FC = () => {
                 </a>
               </li>
               <li>
+                <Link
+                  to="/careers"
+                  className="text-gray-400 hover:text-white transition-colors"
+                >
+                  Careers
+                </Link>
+              </li>
+              <li>
                 <a
                   href="#"
                   className="text-gray-400 hover:text-white transition-colors"

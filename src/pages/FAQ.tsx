@@ -10,6 +10,7 @@ import {
   BookOpen,
   Youtube,
   ChevronDown,
+  ArrowLeft,
 } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import Carousel1 from "@/assets/Carosel_1.jpeg";
@@ -107,14 +108,23 @@ const FAQ = () => {
       {/* Header */}
       <header className="bg-white shadow-sm sticky top-0 z-50">
         <div className="container mx-auto px-6 py-4 flex justify-between items-center">
-          <div
-            className="flex items-center cursor-pointer"
-            onClick={() => navigate("/")}
-          >
-            <Cpu className="h-8 w-8 text-red-600 mr-2" />
-            <span className="font-bold text-xl text-gray-900">
-              AFRICAN INTELLIGENCE
-            </span>
+          <div className="flex items-center gap-4">
+            <Link
+              to="/"
+              className="hidden md:flex items-center justify-center h-10 w-10 rounded-full bg-gray-100 hover:bg-red-50 text-gray-500 hover:text-red-600 transition-colors"
+              title="Back to Home"
+            >
+              <ArrowLeft className="h-5 w-5" />
+            </Link>
+            <div
+              className="flex items-center cursor-pointer"
+              onClick={() => navigate("/")}
+            >
+              <Cpu className="h-8 w-8 text-red-600 mr-2" />
+              <span className="font-bold text-xl text-gray-900">
+                AFRICAN INTELLIGENCE
+              </span>
+            </div>
           </div>
           <div className="flex items-center space-x-4">
             <Button variant="ghost" onClick={() => navigate("/login")}>
@@ -551,7 +561,7 @@ const FAQ = () => {
                 </li>
                 <li>
                   <Link
-                    to="#"
+                    to="/careers"
                     className="text-gray-400 hover:text-white transition-colors"
                   >
                     Careers
